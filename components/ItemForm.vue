@@ -78,7 +78,13 @@ export default {
         ...this.item
       }
       this.$emit('add-item', item)
+      this.resetDataForm()
       this.$refs.form.reset()
+    },
+    resetDataForm () {
+      Object.keys(this.item).forEach((field) => {
+        this.item[field] = ''
+      })
     }
   }
 }
